@@ -20,14 +20,18 @@ class App extends React.Component<AppProps, AppState> {
   }
 
   private onChange(e, d) {
-    const dt: DateTime = DateTime.fromJSDate(d.value);
-    this.setState({ gte: dt });
+    if (!d.value) {
+      this.setState({ gte: null });
+    } else {
+      const dt: DateTime = DateTime.fromJSDate(d.value);
+      this.setState({ gte: dt });
+    }
   }
 
   render() {
     const { gte } = this.state;
     const value = gte ? gte.toJSDate() : null;
-    console.log('render');
+    console.log("render");
     // gte is DateTime. So i will convert it to JS Date on value below
     return (
       <div>
