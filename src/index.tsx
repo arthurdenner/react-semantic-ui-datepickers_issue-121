@@ -23,7 +23,7 @@ class App extends React.Component<AppProps, AppState> {
     if (!d.value) {
       this.setState({ gte: null });
     } else {
-      const dt: DateTime = DateTime.fromJSDate(d.value);
+      const dt: DateTime = DateTime.fromJSDate(d.value).setZone('utc', { keepCalendarTime: true })
       this.setState({ gte: dt });
     }
   }
