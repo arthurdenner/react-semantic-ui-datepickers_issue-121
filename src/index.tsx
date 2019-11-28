@@ -25,11 +25,13 @@ class App extends React.Component<AppProps, AppState> {
 
   render() {
     const { gte } = this.state;
+    const value = gte ? gte.toJSDate() : null;
+    console.log('render');
     // gte is DateTime. So i will convert it to JS Date on value below
     return (
       <div>
         <SemanticDatepicker
-          value={gte.toJSDate()}
+          value={value}
           name={"date_gte"}
           format={"DD-MM-YYYY"}
           clearable={true}
